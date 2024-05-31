@@ -1,0 +1,57 @@
+# compiled output
+/dist
+/build
+/node_modules
+/migrations
+/nginx
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+
+# Tests
+/coverage
+/.nyc_output
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode
+.clinic
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# env
+.env
+/.env.*
+
+# Project
+/helpers
+/src/migrations/*
+# /src/commands/*
+helpers.txt
+reloader-report.json
+
+# k8s
+.gitlab
+.gitlab-ci.yml
+manifests
