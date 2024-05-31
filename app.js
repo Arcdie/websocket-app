@@ -4,13 +4,14 @@ const express = require('express');
 const { WebSocketServer } = require('ws');
 
 const server = https.createServer({
-  cert: fs.readFileSync('./certs/cert.pem'),
-  key: fs.readFileSync('./certs/privkey.pem'),
-  port: 3002,
+  cert: fs.readFileSync('./certs/cert.pem', 'utf-8'),
+  key: fs.readFileSync('./certs/privkey.pem', 'utf-8'),
+  // port: 3002,
 });
 
 const app = express();
-const wss = new WebSocketServer({ server });
+//const wss = new WebSocketServer({ server });
+const wss = new WebSocketServer({ port: 3002 });
 
 wss.on('connection', function connection(ws) {
   ws.on('error', console.error);
@@ -23,7 +24,7 @@ wss.on('connection', function connection(ws) {
 });
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.sendFile('public/index.html', {root: __dirname })
 });
 
 app.listen(3000, () => {

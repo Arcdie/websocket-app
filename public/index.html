@@ -1,0 +1,24 @@
+<script>
+  const WebSocket = require('ws');
+
+    const ws = new WebSocket('ws://renegade-profit.team:3002');
+
+    ws.on('open', () => {
+        console.log('Connected to the secure server');
+
+        // Send a message to the server
+        ws.send('Hello Secure Server!');
+    });
+
+    ws.on('message', (message) => {
+        console.log(`Received message: ${message}`);
+    });
+
+    ws.on('close', () => {
+        console.log('Disconnected from the secure server');
+    });
+
+    ws.on('error', (error) => {
+        console.error(`WebSocket error: ${error}`);
+    });
+</script>
