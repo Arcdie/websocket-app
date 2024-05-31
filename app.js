@@ -1,4 +1,5 @@
 const fs = require('fs');
+const https = require('https');
 const express = require('express');
 const { WebSocketServer } = require('ws');
 
@@ -9,7 +10,7 @@ const server = https.createServer({
 });
 
 const app = express();
-const wss = new WebSocketServer(server);
+const wss = new WebSocketServer({ server });
 
 wss.on('connection', function connection(ws) {
   ws.on('error', console.error);
